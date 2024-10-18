@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPack Farmer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #eef7f3;
+    color: #333;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    color: #3a713b;
+    font-size: 2.5rem;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.block-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.block {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.block img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.text-content {
+    text-align: center;
+    max-width: 700px;
+}
+
+.text-content h2 {
+    color: #2e6d2f;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.submit-button {
+    background-color: #3a713b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2e5d2c;
+}
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Welcome to the EcoPack Farmer Dashboard</h1>
+            <p>Contribute to the future of eco-friendly products by transforming cassava waste into sustainable bioplastics.</p>
+        </header>
+
+        <div class="block-container">
+            <!-- Step 1: What Waste to Submit -->
+            <div class="block">
+                <img src="cassava_waste.jpg" alt="Cassava waste">
+                <h2>Step 1: Identifying the Waste</h2>
+                <p>
+                    You can contribute the waste from cassava processing, which includes peels, pulp, or other by-products. Ensure that the waste is free from contaminants like stones, dirt, and plastics to maintain the quality of the final product.
+                </p>
+            </div>
+
+            <!-- Step 2: Preprocessing the Cassava Waste -->
+            <div class="block">
+                <img src="preprocessing.jpg" alt="Preprocessing cassava waste">
+                <h2>Step 2: Preprocessing the Waste</h2>
+                <p>
+                    To prepare the cassava waste for collection, chop the waste into small pieces and dry it under the sun for 2-3 days. This reduces the moisture content, ensuring that it’s easier to transport and store before processing.
+                </p>
+            </div>
+
+            <!-- Step 3: Collection and Processing -->
+            <div class="block">
+                <img src="factory_processing.jpg" alt="Factory processing cassava waste">
+                <h2>Step 3: Collection and Processing</h2>
+                <p>
+                    Once your cassava waste is preprocessed, EcoPack will arrange for collection from your farm. At our factory, the waste is processed through a chemical-free transformation process, where it is converted into biodegradable plastic materials.
+                </p>
+            </div>
+
+            <!-- Step 4: Products Sold and Farmer Incentives -->
+            <div class="block">
+                <img src="bioplastic_products.jpg" alt="Bioplastic products">
+                <h2>Step 4: Products Sold and Your Earnings</h2>
+                <p>
+                    After the bioplastic products are made from the cassava waste, they are sold to consumers who are looking for eco-friendly alternatives. For every purchase made from products that include your waste, you earn incentives directly deposited into your EcoPack account.
+                </p>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="button-container">
+            <button class="submit-button" onclick="submitWaste()">Yes, I have cassava waste to contribute!</button>
+        </div>
+    </div>
+
+    <script>
+        function submitWaste() {
+    alert("Thank you for submitting your cassava waste! Our team will contact you soon to arrange collection.");
+}
+    </script>
+</body>
+</html>
