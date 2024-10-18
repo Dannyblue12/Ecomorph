@@ -177,7 +177,7 @@ signUpForm.addEventListener('submit', async (e) => {
     });
 
     alert('Sign Up Successful!');
-    window.location.href = 'login.html';
+    window.location.href = 'Dashfarm.html';
   } catch (error) {
     alert('Error: ' + error.message);
   }
@@ -193,7 +193,7 @@ signInForm.addEventListener('submit', async (e) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     alert('Sign In Successful!');
-    window.location.href = 'login.html';
+    window.location.href = 'Dashfarm.html';
   } catch (error) {
     alert('Error: ' + error.message);
   }
