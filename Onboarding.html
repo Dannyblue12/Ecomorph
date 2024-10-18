@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmers Onboarding</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f0;
+    }
+
+    .onboarding-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #eaf3ea;
+    }
+
+    .slides {
+      position: relative;
+      width: 90%;
+      height: 70%;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      animation: fade 1s ease-in-out;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide-text h2 {
+      font-size: 24px;
+      color: #2f8a2e;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: slideIn 0.8s ease forwards;
+    }
+
+    .slide-text p {
+      font-size: 16px;
+      color: #555;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .next-btn {
+      margin-top: 20px;
+      background-color: #2f8a2e;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .next-btn:hover {
+      background-color: #256b22;
+    }
+
+    .dots {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #2f8a2e;
+    }
+
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="onboarding-container">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide">
+        <img src="images (16).jpeg" alt="Farmers Image" class="slide-image">
+        <div class="slide-text">
+          <h2>Farmers, Know Your Worth</h2>
+          <p>Your bio waste helps create bioplastic, a sustainable solution. You play a vital role in this transformation!</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img src="images (17).jpeg" alt="Cassava" class="slide-image">
+        <div class="slide-text">
+          <h2>Cassava: The Key Ingredient</h2>
+          <p>Cassava is used to produce biodegradable plastic. Its starch can be converted into bio-based plastic products that help the environment.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img src="images (18).jpeg" alt="Incentives" class="slide-image">
+        <div class="slide-text">
+          <h2>Earn Incentives!</h2>
+          <p>By contributing bio waste, you can earn financial rewards, helping you and the planet at the same time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Button -->
+    <button class="next-btn" id="nextBtn" onclick="nextSlide()">Next</button>
+
+    <!-- Progress Indicators -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function nextSlide() {
+      slideIndex++;
+      if (slideIndex > document.getElementsByClassName("slide").length) {
+        window.location.href = "https://example.com"; // Replace with your desired URL
+      } else {
+        showSlides(slideIndex);
+        if (slideIndex === document.getElementsByClassName("slide").length) {
+          document.getElementById("nextBtn").innerText = "Finish";
+        }
+      }
+    }
+
+    function currentSlide(n) {
+      slideIndex = n;
+      showSlides(slideIndex);
+      document.getElementById("nextBtn").innerText = slideIndex === document.getElementsByClassName("slide").length ? "Finish" : "Next";
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+
+</body>
+</html>
